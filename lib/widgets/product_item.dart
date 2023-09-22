@@ -27,9 +27,15 @@ class ProductItem extends StatelessWidget {
             Icons.shopping_cart,
           ),
         ),
-        title: Text(imgtitle),
+        title: Text(
+          imgtitle,
+          textAlign: TextAlign.center,
+        ),
       ),
-      child: Image.network(imgUrl),
+      child: Image.network(
+        imgUrl,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }
