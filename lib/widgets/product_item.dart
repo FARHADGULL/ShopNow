@@ -15,14 +15,13 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridTile(
-      child: Image.network(imgUrl),
       footer: GridTileBar(
         backgroundColor: Colors.black54,
-        leading: IconButton(
+        leading: const IconButton(
           icon: Icon(Icons.favorite),
           onPressed: null,
         ),
-        trailing: IconButton(
+        trailing: const IconButton(
           onPressed: null,
           icon: Icon(
             Icons.shopping_cart,
@@ -30,6 +29,7 @@ class ProductItem extends StatelessWidget {
         ),
         title: Text(imgtitle),
       ),
+      child: Image.network(imgUrl),
     );
   }
 }
