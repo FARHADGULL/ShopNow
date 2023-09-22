@@ -14,27 +14,34 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridTile(
-      footer: GridTileBar(
-        backgroundColor: Colors.black54,
-        leading: const IconButton(
-          icon: Icon(Icons.favorite),
-          onPressed: null,
-        ),
-        trailing: const IconButton(
-          onPressed: null,
-          icon: Icon(
-            Icons.shopping_cart,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: GridTile(
+        footer: GridTileBar(
+          backgroundColor: Colors.black87,
+          leading: IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Theme.of(context).hintColor,
+            ),
+            onPressed: null,
+          ),
+          trailing: IconButton(
+            onPressed: null,
+            icon: Icon(
+              Icons.shopping_cart,
+              color: Theme.of(context).hintColor,
+            ),
+          ),
+          title: Text(
+            imgtitle,
+            textAlign: TextAlign.center,
           ),
         ),
-        title: Text(
-          imgtitle,
-          textAlign: TextAlign.center,
+        child: Image.network(
+          imgUrl,
+          fit: BoxFit.cover,
         ),
-      ),
-      child: Image.network(
-        imgUrl,
-        fit: BoxFit.cover,
       ),
     );
   }
