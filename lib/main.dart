@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import '/screens/products_overview_screen.dart';
-import '/provider/products.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+import '../screens/products_overview_screen.dart';
+import '../provider/products.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<Products>(
@@ -19,20 +22,6 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Lato',
         ),
         home: const ProductsOverviewScreen(),
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('MyShop'),
-      ),
-      body: const Center(
-        child: Text('Let\'s build a shop!'),
       ),
     );
   }

@@ -11,7 +11,7 @@ class ProductsOverviewScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Shop Now'),
       ),
-      body: ProductsGrid(),
+      body: const ProductsGrid(),
     );
   }
 }
