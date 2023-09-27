@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       create: (ctx) => Products(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'MyShop',
+        title: 'Shop Now',
         theme: ThemeData(
           primarySwatch: Colors.purple,
           hintColor: Colors.deepOrange,
