@@ -32,7 +32,7 @@ class ProductItem extends StatelessWidget {
             onPressed: () => product.toggleIsFav(),
           ),
           trailing: Consumer(
-            builder: (context, value, child) => IconButton(
+            builder: (context, product, child) => IconButton(
               onPressed: null,
               icon: Icon(
                 Icons.shopping_cart,
