@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_now/screens/product_detail_screen.dart';
-
-import '../provider/product.dart';
 import 'package:provider/provider.dart';
+
+import '../screens/product_detail_screen.dart';
+import '../provider/product.dart';
 
 class ProductItem extends StatelessWidget {
   // final String imgId;
