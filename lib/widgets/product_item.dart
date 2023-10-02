@@ -5,6 +5,8 @@ import '../screens/product_detail_screen.dart';
 import '../provider/product.dart';
 
 class ProductItem extends StatelessWidget {
+  const ProductItem({super.key});
+
   // final String imgId;
   // final String imgtitle;
   // final String imgUrl;
