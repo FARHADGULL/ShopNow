@@ -18,9 +18,9 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context);
-    return Consumer(
-      builder: (context, value, child) => ClipRRect(
+    //final product = Provider.of<Product>(context);
+    return Consumer<Product>(
+      builder: (context, product, child) => ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: GridTile(
           footer: GridTileBar(
