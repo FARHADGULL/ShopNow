@@ -18,15 +18,15 @@ class ProductDetailScreen extends StatelessWidget {
         title: Text(laodedProduct.title),
         actions: [
           PopupMenuButton(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             itemBuilder: (context) => [
-              PopupMenuItem(
-                child: const Text('Only Favorites'),
+              const PopupMenuItem(
                 value: 0,
+                child: Text('Only Favorites'),
               ),
-              PopupMenuItem(
-                child: const Text('All products'),
+              const PopupMenuItem(
                 value: 1,
+                child: Text('All products'),
               )
             ],
           )
