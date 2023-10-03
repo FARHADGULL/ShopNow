@@ -17,7 +17,7 @@ class ProductDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(laodedProduct.title),
       ),
-      body: Text('body'),
+      body: const Text('body'),
     );
   }
 }
