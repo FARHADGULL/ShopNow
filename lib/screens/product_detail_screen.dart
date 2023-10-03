@@ -16,13 +16,13 @@ class ProductDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(laodedProduct.title),
-        actions: [
+        actions: <Widget>[
           PopupMenuButton(
             onSelected: (int value) {
               print(value);
             },
             icon: const Icon(Icons.more_vert),
-            itemBuilder: (context) => [
+            itemBuilder: (_) => [
               const PopupMenuItem(
                 value: 0,
                 child: Text('Only Favorites'),
