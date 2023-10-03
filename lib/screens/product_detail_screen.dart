@@ -16,6 +16,16 @@ class ProductDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(laodedProduct.title),
+        actions: [
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: const Text('Only Favorites'),
+              )
+            ],
+          )
+        ],
       ),
       body: const Text('body'),
     );
