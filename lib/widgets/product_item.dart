@@ -21,7 +21,10 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //below Provider.of<Product>(context) approach will rerun the whole build method whenever
-    //the data changes in the provider class, thats why we use Consumer approach to avoid this.
+    //the data changes in the provider class, thats why we use Consumer approach to avoid this
+    //because consumer will only rerun the part of the widget tree which is wrapped inside the
+    //consumer widget and not the whole build method. So we use Consumer approach when we want
+    //to rebuild only a part of the widget tree and not the whole widget tree.
 
     //final product = Provider.of<Product>(context);
     return ClipRRect(
