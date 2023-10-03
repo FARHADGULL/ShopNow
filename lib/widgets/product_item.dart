@@ -27,6 +27,14 @@ class ProductItem extends StatelessWidget {
     //to rebuild only a part of the widget tree and not the whole widget tree.
 
     //final product = Provider.of<Product>(context);
+
+    //but when i use the Provider.of<Product>(context) along with the listner as false then it
+    //will not rebuild the widget tree when the data changes in the provider class but it will
+    //only get the data from the provider class and not rebuild the widget tree. So we can use
+    //this approach when we want to get the data from the provider class but dont want to rebuild
+    //the widget tree when the data changes in the provider class.
+
+    final product = Provider.of<Product>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
@@ -41,34 +49,28 @@ class ProductItem extends StatelessWidget {
               onPressed: () => product.toggleIsFav(),
             ),
           ),
-          trailing: Consumer(
-            builder: (context, product, child) => IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Theme.of(context).hintColor,
-              ),
+          trailing: IconButton(
+            onPressed: null,
+            icon: Icon(
+              Icons.shopping_cart,
+              color: Theme.of(context).hintColor,
             ),
           ),
-          title: Consumer<Product>(
-            builder: (context, product, child) => Text(
-              product.title,
-              textAlign: TextAlign.center,
-            ),
+          title: Text(
+            product.title,
+            textAlign: TextAlign.center,
           ),
         ),
-        child: Consumer<Product>(
-          builder: (context, product, child) => GestureDetector(
-            onTap: () {
-              Navigator.of(context).pushNamed(
-                ProductDetailScreen.routeName,
-                arguments: product.id,
-              );
-            },
-            child: Image.network(
-              product.imageUrl,
-              fit: BoxFit.cover,
-            ),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              ProductDetailScreen.routeName,
+              arguments: product.id,
+            );
+          },
+          child: Image.network(
+            product.imageUrl,
+            fit: BoxFit.cover,
           ),
         ),
       ),
