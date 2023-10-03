@@ -18,6 +18,9 @@ class ProductDetailScreen extends StatelessWidget {
         title: Text(laodedProduct.title),
         actions: [
           PopupMenuButton(
+            onSelected: (int value) {
+              print(value);
+            },
             icon: const Icon(Icons.more_vert),
             itemBuilder: (context) => [
               const PopupMenuItem(
