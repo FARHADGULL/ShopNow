@@ -22,9 +22,11 @@ class ProductDetailScreen extends StatelessWidget {
             itemBuilder: (context) => [
               PopupMenuItem(
                 child: const Text('Only Favorites'),
+                value: 0,
               ),
               PopupMenuItem(
                 child: const Text('All products'),
+                value: 1,
               )
             ],
           )
