@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         title: 'Shop Now',
         theme: ThemeData(
           primarySwatch: Colors.purple,
-          hintColor: Colors.deepOrange,
+          hintColor: Colors.cyanAccent,
           fontFamily: 'Lato',
         ),
         initialRoute: ProductsOverviewScreen.routeName,
