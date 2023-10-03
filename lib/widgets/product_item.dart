@@ -35,7 +35,6 @@ class ProductItem extends StatelessWidget {
     //the widget tree when the data changes in the provider class.
 
     final product = Provider.of<Product>(context, listen: false);
-    print('data will not change');
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
