@@ -48,14 +48,14 @@ class ProductDetailScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Image.network(laodedProduct.imageUrl, fit: BoxFit.cover),
               ),
-              // const SizedBox(height: 10),
-              // Text(
-              //   '\$${laodedProduct.price}',
-              //   style: const TextStyle(
-              //     color: Colors.grey,
-              //     fontSize: 20,
-              //   ),
-              // ),
+              const SizedBox(height: 10),
+              Text(
+                '\$${laodedProduct.price}',
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                ),
+              ),
               // const SizedBox(height: 10),
               // Container(
               //   padding: const EdgeInsets.symmetric(horizontal: 10),
