@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class CartItem {
   final String id;
   final String title;
-  //inal int quantity;
+  final int quantity;
   final double price;
 
   CartItem({
     required this.title,
-    //required this.quantity,
+    required this.quantity,
     required this.price,
     required this.id,
   });
@@ -30,6 +30,7 @@ class Cart with ChangeNotifier {
           title: productTitle,
           price: productPrice,
           id: DateTime.now().toString(),
+          quantity: 1,
         ),
       );
     }
