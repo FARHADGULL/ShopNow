@@ -19,28 +19,55 @@ class ProductDetailScreen extends StatelessWidget {
     final laodedProduct =
         Provider.of<Products>(context, listen: false).findById(productId);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(laodedProduct.title),
-        actions: <Widget>[
-          PopupMenuButton(
-            onSelected: (filterOptions value) {
-              print(value);
-            },
-            icon: const Icon(Icons.more_vert),
-            itemBuilder: (_) => [
-              const PopupMenuItem(
-                value: filterOptions.favorite,
-                child: Text('Only Favorites'),
+        appBar: AppBar(
+          title: Text(laodedProduct.title),
+          actions: <Widget>[
+            PopupMenuButton(
+              onSelected: (filterOptions value) {
+                print(value);
+              },
+              icon: const Icon(Icons.more_vert),
+              itemBuilder: (_) => [
+                const PopupMenuItem(
+                  value: filterOptions.favorite,
+                  child: Text('Only Favorites'),
+                ),
+                const PopupMenuItem(
+                  value: filterOptions.all,
+                  child: Text('All products'),
+                )
+              ],
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 300,
+                width: double.infinity,
+                child: Image.network(laodedProduct.imageUrl, fit: BoxFit.cover),
               ),
-              const PopupMenuItem(
-                value: filterOptions.all,
-                child: Text('All products'),
-              )
+              // const SizedBox(height: 10),
+              // Text(
+              //   '\$${laodedProduct.price}',
+              //   style: const TextStyle(
+              //     color: Colors.grey,
+              //     fontSize: 20,
+              //   ),
+              // ),
+              // const SizedBox(height: 10),
+              // Container(
+              //   padding: const EdgeInsets.symmetric(horizontal: 10),
+              //   width: double.infinity,
+              //   child: Text(
+              //     laodedProduct.description,
+              //     textAlign: TextAlign.center,
+              //     softWrap: true,
+              //   ),
+              // ),
             ],
-          )
-        ],
-      ),
-      body: const Text('body'),
-    );
+          ),
+        ));
   }
 }
