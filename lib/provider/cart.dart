@@ -20,4 +20,9 @@ class Cart with ChangeNotifier {
   Map<String, CartItem> get items {
     return {..._items};
   }
+
+  void addItem(String productId, String price, String title) {
+    if (_items.containsKey(productId)) {
+    } else {}
+  }
 }
