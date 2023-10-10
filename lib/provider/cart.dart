@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class CartItem {
   final String id;
   final String title;
-  final int quantity;
+  //inal int quantity;
   final double price;
 
   CartItem({
     required this.title,
-    required this.quantity,
+    //required this.quantity,
     required this.price,
     required this.id,
   });
@@ -21,8 +21,17 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
-  void addItem(String productId, String price, String title) {
+  void addItem(String productId, double productPrice, String productTitle) {
     if (_items.containsKey(productId)) {
-    } else {}
+    } else {
+      _items.putIfAbsent(
+        productId,
+        () => CartItem(
+          title: productTitle,
+          price: productPrice,
+          id: DateTime.now().toString(),
+        ),
+      );
+    }
   }
 }
