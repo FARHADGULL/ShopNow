@@ -14,4 +14,10 @@ class CartItem {
   });
 }
 
-class Cart with ChangeNotifier {}
+class Cart with ChangeNotifier {
+  late Map<String, CartItem> _items;
+
+  Map<String, CartItem> get items {
+    return {..._items};
+  }
+}
