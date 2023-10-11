@@ -12,7 +12,7 @@ class ProductsOverviewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shop Now'),
-        actions: [
+        actions: <Widget>[
           PopupMenuButton(
             onSelected: (filterOptions value) {
               print(value);
@@ -28,6 +28,12 @@ class ProductsOverviewScreen extends StatelessWidget {
                 child: Text('All products'),
               )
             ],
+          ),
+          const Badge(
+            child: IconButton(
+              onPressed: null,
+              icon: Icon(Icons.shopping_cart),
+            ),
           )
         ],
       ),
