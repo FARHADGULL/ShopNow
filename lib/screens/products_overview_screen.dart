@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:shop_now/screens/product_detail_screen.dart';
 
+import '../provider/cart.dart';
 import '../widgets/products_grid.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
@@ -29,7 +32,8 @@ class ProductsOverviewScreen extends StatelessWidget {
               )
             ],
           ),
-          const Badge(
+          Consumer<Cart>(
+            builder: (_, cart, ch) => Badge(child: ch),
             child: IconButton(
               onPressed: null,
               icon: Icon(Icons.shopping_cart),
