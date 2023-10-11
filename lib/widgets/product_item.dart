@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_now/provider/cart.dart';
 
 import '../screens/product_detail_screen.dart';
 import '../provider/product.dart';
@@ -35,6 +36,7 @@ class ProductItem extends StatelessWidget {
     //the widget tree when the data changes in the provider class.
 
     final product = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
