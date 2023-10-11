@@ -5,7 +5,7 @@ import '../provider/cart.dart';
 import '../widgets/products_grid.dart';
 import '../widgets/badge.dart';
 
-enum filterOptions {
+enum FilterOptions {
   favorite,
   all,
 }
@@ -27,13 +27,11 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         title: const Text('Shop Now'),
         actions: <Widget>[
           PopupMenuButton(
-            onSelected: (filterOptions selectedValue) {
+            onSelected: (FilterOptions selectedValue) {
               setState(() {
-                if (selectedValue == filterOptions.favorite) {
-                  // productsContainer.showFavoritesOnly();
+                if (selectedValue == FilterOptions.favorite) {
                   _showOnlyFavorites = true;
                 } else {
-                  // productsContainer.showAll();
                   _showOnlyFavorites = false;
                 }
               });
@@ -41,11 +39,11 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             icon: const Icon(Icons.more_vert),
             itemBuilder: (_) => [
               const PopupMenuItem(
-                value: filterOptions.favorite,
+                value: FilterOptions.favorite,
                 child: Text('Only Favorites'),
               ),
               const PopupMenuItem(
-                value: filterOptions.all,
+                value: FilterOptions.all,
                 child: Text('All products'),
               )
             ],
