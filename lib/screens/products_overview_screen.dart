@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Badge;
 import 'package:provider/provider.dart';
 
 import 'package:shop_now/screens/product_detail_screen.dart';
 
 import '../provider/cart.dart';
 import '../widgets/products_grid.dart';
+import '../widgets/badge.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
   static const routeName = '/products-overview';
@@ -33,9 +34,14 @@ class ProductsOverviewScreen extends StatelessWidget {
             ],
           ),
           Consumer<Cart>(
-            builder: (_, cart, ch) => Badge(child: ch),
+            builder: (_, cart, ch) => Badge(
+              value: cart.itemCount.toString(),
+              key: const ValueKey('cartBadge'),
+              color: Colors.red,
+              child: ch!,
+            ),
             child: IconButton(
-              onPressed: null,
+              onPressed: () {},
               icon: Icon(Icons.shopping_cart),
             ),
           )
