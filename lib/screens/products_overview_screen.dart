@@ -42,7 +42,7 @@ class ProductsOverviewScreen extends StatelessWidget {
             ),
             child: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.shopping_cart),
             ),
           )
         ],
