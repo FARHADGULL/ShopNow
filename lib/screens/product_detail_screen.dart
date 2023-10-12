@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../provider/products.dart';
 
-enum filterOptions {
+enum FilterOptions {
   favorite,
   all,
 }
@@ -23,17 +23,17 @@ class ProductDetailScreen extends StatelessWidget {
         title: Text(laodedProduct.title),
         actions: <Widget>[
           PopupMenuButton(
-            onSelected: (filterOptions value) {
+            onSelected: (FilterOptions value) {
               print(value);
             },
             icon: const Icon(Icons.more_vert),
             itemBuilder: (_) => [
               const PopupMenuItem(
-                value: filterOptions.favorite,
+                value: FilterOptions.favorite,
                 child: Text('Only Favorites'),
               ),
               const PopupMenuItem(
-                value: filterOptions.all,
+                value: FilterOptions.all,
                 child: Text('All products'),
               )
             ],
