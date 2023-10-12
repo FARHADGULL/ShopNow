@@ -26,7 +26,7 @@ class CartScreen extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  Chip(label: Text(cart.totalAmount.toString()))
+                  Chip(label: Text('\$${cart.totalAmount.toString()}'))
                 ],
               ),
             ),
