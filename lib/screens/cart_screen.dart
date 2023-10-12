@@ -33,7 +33,10 @@ class CartScreen extends StatelessWidget {
                     label: Text('\$${cart.totalAmount.toString()}'),
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
-                  TextButton(onPressed: () {}, child: const Text('ORDER NOW'))
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('ORDER NOW'),
+                  )
                 ],
               ),
             ),
