@@ -27,6 +27,9 @@ class CartItem extends StatelessWidget {
           leading: CircleAvatar(
             child: Text('\$${price}'),
           ),
+          title: Text(title),
+          subtitle: Text('\$${(price * quantity)}'),
+          trailing: Text('$quantity'),
         ),
       ),
     );
