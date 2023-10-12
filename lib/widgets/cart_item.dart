@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:shop_now/provider/cart.dart';
+import '../provider/cart.dart';
 
 class CartItem extends StatelessWidget {
   final String id;
@@ -25,17 +25,17 @@ class CartItem extends StatelessWidget {
       key: ValueKey(id),
       background: Container(
         color: Colors.red,
-        child: Icon(
-          Icons.delete,
-          color: Colors.white,
-          size: 40,
-        ),
         alignment: Alignment.centerRight,
         margin: const EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 4,
         ),
-        padding: EdgeInsets.only(right: 20),
+        padding: const EdgeInsets.only(right: 20),
+        child: const Icon(
+          Icons.delete,
+          color: Colors.white,
+          size: 40,
+        ),
       ),
       direction: DismissDirection.endToStart,
       onDismissed: (direction) {

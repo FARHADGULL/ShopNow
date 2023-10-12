@@ -59,9 +59,9 @@ class ProductItem extends StatelessWidget {
                 product.title,
               );
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.shopping_cart,
-              color: Theme.of(context).hintColor,
+              color: Colors.red,
             ),
           ),
           title: Text(
