@@ -19,6 +19,7 @@ class CartScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   const Text(
                     'Total',
@@ -27,10 +28,12 @@ class CartScreen extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
+                  const Spacer(),
                   Chip(
                     label: Text('\$${cart.totalAmount.toString()}'),
                     backgroundColor: Theme.of(context).primaryColor,
-                  )
+                  ),
+                  TextButton(onPressed: () {}, child: const Text('ORDER NOW'))
                 ],
               ),
             ),
