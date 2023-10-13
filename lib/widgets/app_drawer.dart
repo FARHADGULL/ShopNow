@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_now/screens/orders_screen.dart';
+
+import '../screens/orders_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
