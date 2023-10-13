@@ -45,6 +45,7 @@ class _OrderItemState extends State<OrderItem> {
               child: ListView(
                 children: widget.order.products
                     .map((prod) => Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               prod.title,
@@ -57,7 +58,7 @@ class _OrderItemState extends State<OrderItem> {
                               width: 10,
                             ),
                             Text(
-                              '${prod.quantity}x \$${prod.price}',
+                              '${prod.quantity}x  \$${prod.price}',
                               style: const TextStyle(
                                 fontSize: 18,
                                 color: Colors.grey,
