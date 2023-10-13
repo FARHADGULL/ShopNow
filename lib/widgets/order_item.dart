@@ -39,7 +39,9 @@ class _OrderItemState extends State<OrderItem> {
           ),
           if (_expanded)
             Container(
-              height: min(widget.order.products.length * 20 + 100, 180),
+              margin: EdgeInsets.all(10),
+              padding: EdgeInsets.only(top: 30),
+              height: min(widget.order.products.length * 20 + 100, 150),
               child: ListView(
                 children: widget.order.products
                     .map((prod) => Row(
@@ -50,6 +52,9 @@ class _OrderItemState extends State<OrderItem> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
+                            ),
+                            const SizedBox(
+                              width: 10,
                             ),
                             Text(
                               '${prod.quantity}x \$${prod.price}',
