@@ -20,7 +20,7 @@ class _OrderItemState extends State<OrderItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Column(
         children: [
           ListTile(
@@ -39,36 +39,38 @@ class _OrderItemState extends State<OrderItem> {
           ),
           if (_expanded)
             Container(
-              margin: EdgeInsets.all(10),
-              padding: EdgeInsets.only(top: 30),
+              margin: const EdgeInsets.all(10),
+              padding: const EdgeInsets.only(top: 30),
               height: min(widget.order.products.length * 20 + 100, 150),
               child: ListView(
                 children: widget.order.products
-                    .map((prod) => Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              prod.title,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
+                    .map(
+                      (prod) => Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            prod.title,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
-                            const SizedBox(
-                              width: 10,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            '${prod.quantity}x  \$${prod.price}',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.grey,
                             ),
-                            Text(
-                              '${prod.quantity}x  \$${prod.price}',
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ],
-                        ))
+                          ),
+                        ],
+                      ),
+                    )
                     .toList(),
               ),
-            )
+            ),
         ],
       ),
     );
