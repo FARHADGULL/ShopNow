@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' hide Badge;
 import 'package:provider/provider.dart';
+import 'package:shop_now/widgets/app_drawer.dart';
 
 import '../screens/cart_screen.dart';
 import '../provider/cart.dart';
@@ -67,6 +68,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           )
         ],
       ),
+      drawer: const AppDrawer(),
       body: ProductsGrid(showFavorites: _showOnlyFavorites),
     );
   }
