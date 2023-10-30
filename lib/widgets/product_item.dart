@@ -58,6 +58,36 @@ class ProductItem extends StatelessWidget {
                 product.price,
                 product.title,
               );
+              Scaffold.of(context).showBottomSheet(
+                (context) => Container(
+                  height: 50,
+                  color: Colors.black87,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text(
+                        'Added item to cart!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          cart.removeSingleItem(product.id);
+                        },
+                        child: const Text(
+                          'UNDO',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
             },
             icon: const Icon(
               Icons.shopping_cart,
