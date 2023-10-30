@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_now/provider/products.dart';
+import 'package:shop_now/widgets/user_product_item.dart';
 
 class UserProductsScreen extends StatelessWidget {
   static const routeName = '/user-product-screen';
@@ -22,7 +23,10 @@ class UserProductsScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: productsData.items.length,
-        itemBuilder: (_, index) => ListTile(),
+        itemBuilder: (_, index) => UserProductItem(
+          title: productsData.items[index].title,
+          imageUrl: productsData.items[index].imageUrl,
+        ),
       ),
     );
   }
