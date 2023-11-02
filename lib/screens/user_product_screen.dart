@@ -19,7 +19,7 @@ class UserProductsScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
           )
         ],
       ),
@@ -27,7 +27,7 @@ class UserProductsScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: productsData.items.length,
         itemBuilder: (_, index) => Column(
-          children: [
+          children: <Widget>[
             UserProductItem(
               title: productsData.items[index].title,
               imageUrl: productsData.items[index].imageUrl,
