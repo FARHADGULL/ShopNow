@@ -14,6 +14,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
   final _focusDescriptionNode = FocusNode();
 
   @override
+  void dispose() {
+    _focusPriceNode.dispose();
+    _focusDescriptionNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
