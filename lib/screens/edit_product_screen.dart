@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_now/provider/products.dart';
+import 'package:provider/provider.dart';
 
 import '../provider/product.dart';
 
@@ -53,6 +55,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       return;
     }
     _form.currentState!.save();
+    Provider.of<Products>(context, listen: false).addProduct(_editedProduct);
   }
 
   @override
