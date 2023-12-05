@@ -92,6 +92,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   if (value!.isEmpty) {
                     return 'Please provide a value';
                   }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid number';
+                  }
+                  if (double.parse(value) <= 0) {
+                    return 'Please enter a number greater than zero';
+                  }
                   return null;
                 },
               ),
@@ -138,7 +144,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 },
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please provide a value';
+                    return 'Please enter a description';
+                  }
+                  if (value.length < 10) {
+                    return 'Should be at least 10 characters long';
                   }
                   return null;
                 },
