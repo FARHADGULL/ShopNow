@@ -26,6 +26,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     price: 0,
     imageUrl: '',
   );
+  var _isInit = true;
 
   @override
   void dispose() {
@@ -41,6 +42,15 @@ class _EditProductScreenState extends State<EditProductScreen> {
   void initState() {
     _focusImageUrl.addListener(_updateImgUrl);
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      final productId = ModalRoute.of(context)!.settings.arguments as String;
+    }
+
+    super.didChangeDependencies();
   }
 
   void _updateImgUrl() {
