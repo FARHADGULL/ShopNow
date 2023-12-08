@@ -19,7 +19,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   final _focusImageUrl = FocusNode();
   final _imageUrlControler = TextEditingController();
   final _form = GlobalKey<FormState>();
-  final _editedProduct = Product(
+  var _editedProduct = Product(
     id: '',
     title: '',
     description: '',
@@ -48,6 +48,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
   void didChangeDependencies() {
     if (_isInit) {
       final productId = ModalRoute.of(context)!.settings.arguments as String;
+      _editedProduct =
+          Provider.of<Products>(context, listen: false).findById(productId);
     }
 
     super.didChangeDependencies();
