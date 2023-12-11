@@ -51,24 +51,27 @@ class Products with ChangeNotifier {
   void addProduct(Product product) {
     final url = Uri.parse(
         "https://console.firebase.google.com/project/shop-now-a42b9/database/shop-now-a42b9-default-rtdb/data/~2F/products.json");
-    http.post(url,
-        body: json.encode({
-          "title": product.title,
-          "description": product.description,
-          "imageUrl": product.imageUrl,
-          "isFav": product.isFavorite,
-          "price": product.price
-        }));
-    final newProduct = Product(
-      id: DateTime.now().toString(),
-      title: product.title,
-      description: product.description,
-      price: 0,
-      imageUrl: '',
-    );
-    _items.add(newProduct);
-    //_items.insert(0, newProduct); // at the start of the list
-    notifyListeners();
+    http
+        .post(url,
+            body: json.encode({
+              "title": product.title,
+              "description": product.description,
+              "imageUrl": product.imageUrl,
+              "isFav": product.isFavorite,
+              "price": product.price
+            }))
+        .then((response) {
+      final newProduct = Product(
+        id: json.decode(response.body)['name'],
+        title: product.title,
+        description: product.description,
+        price: 0,
+        imageUrl: '',
+      );
+      _items.add(newProduct);
+      //_items.insert(0, newProduct); // at the start of the list
+      notifyListeners();
+    });
   }
 
   void updateProduct(String id, Product newProduct) {
