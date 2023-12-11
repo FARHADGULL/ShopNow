@@ -48,10 +48,10 @@ class Products with ChangeNotifier {
     return _items.firstWhere((prod) => prod.id == id);
   }
 
-  void addProduct(Product product) {
+  Future<void> addProduct(Product product) {
     final url = Uri.parse(
         "https://console.firebase.google.com/project/shop-now-a42b9/database/shop-now-a42b9-default-rtdb/data/~2F/products.json");
-    http
+    return http
         .post(url,
             body: json.encode({
               "title": product.title,
