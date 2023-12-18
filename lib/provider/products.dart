@@ -48,6 +48,17 @@ class Products with ChangeNotifier {
     return _items.firstWhere((prod) => prod.id == id);
   }
 
+  Future<void> fetchAndSetProducts() async {
+    final url = Uri.parse(
+        'https://shop-now-a42b9-default-rtdb.firebaseio.com/products.json');
+    try {
+      final response = await http.get(url);
+      print(json.decode(response.body));
+    } catch (error) {
+      throw error;
+    }
+  }
+
   //this appraoch is better than the one below commented as it is more readable and easy to understand and debug and also it is more efficient
   Future<void> addProduct(Product product) async {
     final url = Uri.parse(
