@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:shop_now/provider/products.dart';
 import 'package:provider/provider.dart';
@@ -79,6 +81,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     }
   }
 
+  //this is the new approach with async and await and try and catch block and it is more efficient
   Future<void> _saveForm() async {
     final isValid = _form.currentState!.validate();
     if (!isValid) {
@@ -123,6 +126,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     }
   }
 
+  //this is the old approach without async and await and try and catch block and it is not efficient
   // void _saveForm() {
   //   final isValid = _form.currentState!.validate();
   //   if (!isValid) {
