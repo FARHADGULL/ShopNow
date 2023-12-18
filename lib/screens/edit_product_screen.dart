@@ -79,7 +79,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     }
   }
 
-  void _saveForm() {
+  Future<void> _saveForm() async {
     final isValid = _form.currentState!.validate();
     if (!isValid) {
       return;
@@ -96,9 +96,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
       });
       Navigator.of(context).pop();
     } else {
-      Provider.of<Products>(context, listen: false)
-          .addProduct(_editedProduct)
-          .catchError((error) {
+      try {
+        await Provider.of<Products>(context, listen: false)
+            .addProduct(_editedProduct);
+      } catch (error) {
         return showDialog(
             context: context,
             builder: (ctx) => AlertDialog(
@@ -113,14 +114,57 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     )
                   ],
                 ));
-      }).then((_) {
+      } finally {
         setState(() {
           _isLoad = false;
         });
         Navigator.of(context).pop();
-      });
+      }
     }
   }
+
+  // void _saveForm() {
+  //   final isValid = _form.currentState!.validate();
+  //   if (!isValid) {
+  //     return;
+  //   }
+  //   _form.currentState!.save();
+  //   setState(() {
+  //     _isLoad = true;
+  //   });
+  //   if (_editedProduct.id != '') {
+  //     Provider.of<Products>(context, listen: false)
+  //         .updateProduct(_editedProduct.id, _editedProduct);
+  //     setState(() {
+  //       _isLoad = false;
+  //     });
+  //     Navigator.of(context).pop();
+  //   } else {
+  //     Provider.of<Products>(context, listen: false)
+  //         .addProduct(_editedProduct)
+  //         .catchError((error) {
+  //       return showDialog(
+  //           context: context,
+  //           builder: (ctx) => AlertDialog(
+  //                 title: const Text('An error occurred!'),
+  //                 content: const Text('Something went wrong.'),
+  //                 actions: [
+  //                   TextButton(
+  //                     onPressed: () {
+  //                       Navigator.of(ctx).pop();
+  //                     },
+  //                     child: const Text('Okay'),
+  //                   )
+  //                 ],
+  //               ));
+  //     }).then((_) {
+  //       setState(() {
+  //         _isLoad = false;
+  //       });
+  //       Navigator.of(context).pop();
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
