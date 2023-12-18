@@ -48,19 +48,21 @@ class Products with ChangeNotifier {
     return _items.firstWhere((prod) => prod.id == id);
   }
 
-  Future<void> addProduct(Product product) {
+  //this appraoch is better than the one below commented as it is more readable and easy to understand and debug and also it is more efficient
+  Future<void> addProduct(Product product) async {
     final url = Uri.parse(
-        "https://console.firebase.google.com/project/shop-now-a42b9/database/shop-now-a42b9-default-rtdb/data/~2F/products.json");
-    return http
-        .post(url,
-            body: json.encode({
-              "title": product.title,
-              "description": product.description,
-              "imageUrl": product.imageUrl,
-              "isFav": product.isFavorite,
-              "price": product.price
-            }))
-        .then((response) {
+        "https://shop-now-a42b9-default-rtdb.firebaseio.com/products.json");
+    try {
+      final response = await http.post(
+        url,
+        body: json.encode({
+          "title": product.title,
+          "description": product.description,
+          "imageUrl": product.imageUrl,
+          "isFav": product.isFavorite,
+          "price": product.price
+        }),
+      );
       final newProduct = Product(
         id: json.decode(response.body)['name'],
         title: product.title,
@@ -71,11 +73,41 @@ class Products with ChangeNotifier {
       _items.add(newProduct);
       //_items.insert(0, newProduct); // at the start of the list
       notifyListeners();
-    }).catchError((error) {
+    } catch (error) {
       print(error);
       throw error;
-    });
+    }
   }
+
+  //this is the old approach without async and await and try and catch block and it is not efficient
+  // Future<void> addProduct(Product product) {
+  //   final url = Uri.parse(
+  //       "https://console.firebase.google.com/project/shop-now-a42b9/database/shop-now-a42b9-default-rtdb/data/~2F/products.json");
+  //   return http
+  //       .post(url,
+  //           body: json.encode({
+  //             "title": product.title,
+  //             "description": product.description,
+  //             "imageUrl": product.imageUrl,
+  //             "isFav": product.isFavorite,
+  //             "price": product.price
+  //           }))
+  //       .then((response) {
+  //     final newProduct = Product(
+  //       id: json.decode(response.body)['name'],
+  //       title: product.title,
+  //       description: product.description,
+  //       price: 0,
+  //       imageUrl: '',
+  //     );
+  //     _items.add(newProduct);
+  //     //_items.insert(0, newProduct); // at the start of the list
+  //     notifyListeners();
+  //   }).catchError((error) {
+  //     print(error);
+  //     throw error;
+  //   });
+  // }
 
   void updateProduct(String id, Product newProduct) {
     final prodIndex = _items.indexWhere((prod) => prod.id == id);
