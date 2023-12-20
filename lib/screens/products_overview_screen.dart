@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart' hide Badge;
 import 'package:provider/provider.dart';
-
 import '../provider/products.dart';
 import '../widgets/app_drawer.dart';
 import '../screens/cart_screen.dart';
