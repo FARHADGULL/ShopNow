@@ -113,7 +113,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       onPressed: () {
                         Navigator.of(ctx).pop();
                       },
-                      child: const Text('Okay'),
+                      child: const Text('Ok'),
                     )
                   ],
                 ));
