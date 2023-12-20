@@ -24,7 +24,7 @@ class ProductDetailScreen extends StatelessWidget {
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilterOptions value) {
-              //print(value);
+              print(value);
             },
             icon: const Icon(Icons.more_vert),
             itemBuilder: (_) => [
