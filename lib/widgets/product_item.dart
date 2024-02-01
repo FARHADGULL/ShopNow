@@ -43,9 +43,9 @@ class ProductItem extends StatelessWidget {
         footer: GridTileBar(
           backgroundColor: Colors.black87,
           leading: Consumer<Product>(
-            builder: (context, Cproduct, _) => IconButton(
+            builder: (context, cProduct, _) => IconButton(
               icon: Icon(
-                Cproduct.isFavorite ? Icons.favorite : Icons.favorite_border,
+                cProduct.isFavorite ? Icons.favorite : Icons.favorite_border,
                 color: Colors.red,
               ),
               onPressed: () => product.toggleIsFav(),
