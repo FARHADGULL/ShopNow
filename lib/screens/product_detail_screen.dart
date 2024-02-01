@@ -51,7 +51,7 @@ class ProductDetailScreen extends StatelessWidget {
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
               child: Text(
                 '\$${laodedProduct.price}',
                 style: const TextStyle(
