@@ -22,7 +22,7 @@ class UserProductItem extends StatelessWidget {
         backgroundImage: NetworkImage(imageUrl),
       ),
       title: Text(title),
-      trailing: Container(
+      trailing: SizedBox(
         width: 100,
         child: Row(
           children: [
