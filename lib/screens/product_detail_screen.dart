@@ -47,9 +47,6 @@ class ProductDetailScreen extends StatelessWidget {
               width: double.infinity,
               child: Image.network(laodedProduct.imageUrl, fit: BoxFit.cover),
             ),
-            const SizedBox(
-              height: 10,
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
               child: Text(
