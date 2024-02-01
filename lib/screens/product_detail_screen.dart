@@ -50,11 +50,14 @@ class ProductDetailScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Text(
-              '\$${laodedProduct.price}',
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 20,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                '\$${laodedProduct.price}',
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                ),
               ),
             ),
             const SizedBox(
