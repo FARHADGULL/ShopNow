@@ -57,9 +57,6 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10,
